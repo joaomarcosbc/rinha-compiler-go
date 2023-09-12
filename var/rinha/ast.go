@@ -25,7 +25,7 @@ const (
 	Or     Binary = "Or"
 )
 
-type Var struct {
+type Parameter struct {
 	Text     string
 	Location Loc
 }
@@ -58,7 +58,7 @@ type VarTerm struct {
 
 type FunctionTerm struct {
 	Kind       string
-	Parameters []Var
+	Parameters []Parameter
 	Value      Term
 	Location   Loc
 }
@@ -80,7 +80,7 @@ type BinaryTerm struct {
 
 type LetTerm struct {
 	Kind     string
-	Name     Var
+	Name     Parameter
 	Value    Term
 	Next     Term
 	Location Loc
