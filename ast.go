@@ -32,7 +32,7 @@ type Parameter struct {
 
 type Term interface{}
 
-type BoolT struct {
+type Bool struct {
 	Kind     string
 	Value    bool
 	Location Loc
