@@ -6,23 +6,23 @@ type Loc struct {
 	Filename string
 }
 
-type Binary string
+type BinaryOp string
 
 const (
-	Concat Binary = "Concat"
-	Add    Binary = "Add"
-	Sub    Binary = "Sub"
-	Mul    Binary = "Mul"
-	Div    Binary = "Div"
-	Rem    Binary = "Rem"
-	Eq     Binary = "Eq"
-	Neq    Binary = "Neq"
-	Lt     Binary = "Lt"
-	Gt     Binary = "Gt"
-	Lte    Binary = "Lte"
-	Gte    Binary = "Gte"
-	And    Binary = "And"
-	Or     Binary = "Or"
+	Concat BinaryOp = "Concat"
+	Add    BinaryOp = "Add"
+	Sub    BinaryOp = "Sub"
+	Mul    BinaryOp = "Mul"
+	Div    BinaryOp = "Div"
+	Rem    BinaryOp = "Rem"
+	Eq     BinaryOp = "Eq"
+	Neq    BinaryOp = "Neq"
+	Lt     BinaryOp = "Lt"
+	Gt     BinaryOp = "Gt"
+	Lte    BinaryOp = "Lte"
+	Gte    BinaryOp = "Gte"
+	And    BinaryOp = "And"
+	Or     BinaryOp = "Or"
 )
 
 type Parameter struct {
@@ -32,53 +32,53 @@ type Parameter struct {
 
 type Term interface{}
 
-type BoolTerm struct {
+type BoolT struct {
 	Kind     string
 	Value    bool
 	Location Loc
 }
 
-type IntTerm struct {
+type Int struct {
 	Kind     string
 	Value    int
 	Location Loc
 }
 
-type StringTerm struct {
+type String struct {
 	Kind     string
 	Value    string
 	Location Loc
 }
 
-type VarTerm struct {
+type Var struct {
 	Kind     string
 	Text     string
 	Location Loc
 }
 
-type FunctionTerm struct {
+type Function struct {
 	Kind       string
 	Parameters []Parameter
 	Value      Term
 	Location   Loc
 }
 
-type CallTerm struct {
+type Call struct {
 	Kind      string
 	Callee    Term
 	Arguments []Term
 	Location  Loc
 }
 
-type BinaryTerm struct {
+type Binary struct {
 	Kind     string
 	Lhs      Term
-	Op       Binary
+	Op       BinaryOp
 	Rhs      Term
 	Location Loc
 }
 
-type LetTerm struct {
+type Let struct {
 	Kind     string
 	Name     Parameter
 	Value    Term
@@ -86,7 +86,7 @@ type LetTerm struct {
 	Location Loc
 }
 
-type IfTerm struct {
+type If struct {
 	Kind      string
 	Condition Term
 	Then      Term
@@ -94,7 +94,7 @@ type IfTerm struct {
 	Location  Loc
 }
 
-type PrintTerm struct {
+type Print struct {
 	Kind     string
 	Value    Term
 	Location Loc
