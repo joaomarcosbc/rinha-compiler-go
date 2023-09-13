@@ -1,5 +1,10 @@
 package main
 
+type File struct {
+	Name       string
+	Expression Term
+}
+
 type Loc struct {
 	Start    int
 	End      int
