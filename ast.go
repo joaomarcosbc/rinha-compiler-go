@@ -105,6 +105,25 @@ type Print struct {
 	Location Loc
 }
 
+type Tuple struct {
+	Kind     string
+	First    Term
+	Second   Term
+	Location Loc
+}
+
+type First struct { //gets first element of tuple (when called for something thats not a tuple, should throw runtime error)
+	Kind     string
+	Value    Term
+	Location Loc
+}
+
+type Second struct { //gets second element of tuple (when called for something thats not a tuple, should throw runtime error)
+	Kind     string
+	Value    Term
+	Location Loc
+}
+
 type Program struct {
 	Name       string
 	Expression Term
